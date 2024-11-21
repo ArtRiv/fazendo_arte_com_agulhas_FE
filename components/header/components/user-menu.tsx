@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export const UserMenu = () => {
     const { signOut } = useAuth();
-    const { user, isLoaded } = useUser();
+    const { user } = useUser();
 
     return (
         <div className="px-2 py-1.5 rounded hover:bg-zinc-100 transition-colors" onClick={(e) => e.stopPropagation()}>

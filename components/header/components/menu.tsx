@@ -17,7 +17,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { UserMenu } from "./user-menu";
 import { useCart } from "react-use-cart";
-import { ShoppingBag, ShoppingCart } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export const MenuButton = () => {
@@ -111,12 +111,15 @@ export const MenuButton = () => {
 };
 
 const MyCartMenuItem = () => {
-    const { isEmpty, cartTotal } = useCart();
+    const { isEmpty, cartTotal, addItem } = useCart();
 
     if (isEmpty) {
         return (
             <>
                 <DropdownMenuItem className="cursor-pointer">Meu carrinho</DropdownMenuItem>
+                <Button variant="ghost" onClick={() => addItem({id: "id", price: 100, itemTotal: 1, quantity: 1})}>
+                    add item
+                </Button>
             </>
         )
     }
