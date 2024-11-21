@@ -1,0 +1,28 @@
+.section-header {
+  height: 160px;
+  min-width: 100vw;
+  background-color: hsl(var(--foreground));
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-sticky {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.section-header.animate {
+  transition: top 0.2s ease-in-out;
+}
+
+.header-hidden {
+  top: -160px;
+}
