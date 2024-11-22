@@ -5,6 +5,7 @@ import { Label } from "../ui/label"
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "../ui/sidebar"
 import { Calendar, Home, Inbox, Search, Settings, ShoppingCart, X } from "lucide-react"
 import { Switch } from "../ui/switch"
+import { useCart } from "react-use-cart"
 const items = [
     {
         title: "Home",
@@ -33,14 +34,22 @@ const items = [
     },
 ]
 
-
-
 export const SidebarComponent = () => {
     const { setOpen, open } = useSidebar();
+    const { cartTotal,isEmpty } = useCart();
     return (
         <Sidebar side="right">
-            <Button className="size-8 p-5 rounded-sm border-l border-t border-zinc-300 absolute bottom-0 left-[-41px]" variant={"ghost"} onClick={() => setOpen(!open)}>
-                <ShoppingCart className="!w-8 !h-8 stroke-zinc-600" />
+            <Button className={`size-16 p-5 rounded-sm border-l border-t border-zinc-300 
+            absolute bottom-0 left-[-64px] 
+            ${open ? "left-0 border" : ""} transition-all duration-300 ease-out`}
+            variant={"ghost"} 
+            onClick={() => setOpen(!open)}>
+                {!isEmpty && (
+                    <p className="text-red-700 absolute">
+                        {cartTotal}
+                    </p>
+                )}
+                <ShoppingCart className="!w-10 !h-10 stroke-zinc-600" />
             </Button>
             <SidebarHeader className="gap-3.5 border-b px-4 py-2">
                 <div className="flex w-full items-center justify-end">
