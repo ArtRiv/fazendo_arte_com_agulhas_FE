@@ -1,15 +1,7 @@
 .section-header {
   height: 160px;
-  min-width: 100vw;
   background-color: hsl(var(--foreground));
   width: 100%;
-  max-width: 120rem;
-  margin: 0 auto;
-  padding: 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .header-sticky {
