@@ -26,8 +26,8 @@ const Hero = () => {
           <p className="text-base mt-5 opacity-75 font-normal">
             Passe um pouco da alegria natalina com os amigurumis de Pugs de Natal - agora com 40% de desconto. A oferta termina em 1º de dezembro, então não perca a diversão festiva!
           </p>
-          <Button className="mt-5 self-start text-left px-7 py-3 font-base">
-            Shop now
+          <Button variant="link" className="mt-5 self-start text-left p-0 font-bold text-lg">
+            Ver mais
           </Button>
         </div>
       </div>
@@ -43,7 +43,9 @@ const Hero = () => {
 const BestSellingProductsSection = () => {
   return (
     <section className="flex flex-wrap justify-center max-w-[75rem] px-12 mx-auto mt-16">
-      <h2 className="w-full text-left mb-8 text-inherit text-3xl font-bold [line-height:38.4px]">Our Best-Selling Patterns!</h2>
+      <h2 className="w-full text-left mb-14 text-inherit text-3xl font-bold [line-height:38.4px]">
+        Nossos produtos mais vendidos!
+      </h2>
       <ProductList products/>
     </section>
   )

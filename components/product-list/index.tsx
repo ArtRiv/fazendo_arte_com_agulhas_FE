@@ -10,68 +10,68 @@ type ProductListProps = {
 
 const products_teste = [
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
     {
-        title: "Nahida - Genshin Impact",
-        price: 99.9,
+        title: "Pugs - Edição de natal",
+        price: 99.99,
         image: "https://i.ibb.co/c3t2Rm3/nahida-1.jpg",
     },
 ]
@@ -87,8 +87,14 @@ export const ProductList = ({
             [column-gap:40px] [row-gap:40px]">
                 {products_teste.map((product: any, index: number) => (
                     <li className="w-60 max-w-60 grid--item">
-                        <Image className="w-full flex relative items-stretch shape--blob" alt="product image" src={"https://medaami.com/cdn/shop/files/TN-polos.jpg?v=1731954258&width=1500"} width={245} height={245} />
-                        <div className="pt-0 pr-2 pb-2 pl-2">
+        <Image 
+          className="w-full flex relative items-stretch shape--blob slide_in_effect image" 
+          alt="product image" 
+          src="https://medaami.com/cdn/shop/files/TN-polos.jpg?v=1731954258&width=1500" 
+          width={245} 
+          height={245} 
+        />                        
+        <div className="pt-0 pr-2 pb-2 pl-2">
                             <div className="px-2 py-4">
                                 <h3 className="text-zinc-900 text-lg">
                                     {product.title}
