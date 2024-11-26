@@ -1,7 +1,8 @@
 .section-header {
   height: 160px;
-  background-color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
   width: 100%;
+  z-index: 20;
 }
 
 .header-sticky {

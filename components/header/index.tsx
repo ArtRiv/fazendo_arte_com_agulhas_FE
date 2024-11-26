@@ -1,10 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from "react";
-import { MenuButton } from "./components/menu-button";
-import { CartProvider, useCart } from "react-use-cart";
-import { CartButton } from "./components/cart-button";
-import { Button } from "../ui/button";
 import { Logo } from "./components/logo";
 import { SearchInput } from "./components/search";
 import { HeaderToolBar } from "./components/menu-cart-button";
@@ -92,7 +88,7 @@ export const Header = () => {
 
     return (
         <header className="section-header" ref={headerRef}>
-            <div className="max-w-[120rem] h-full my-0 mx-auto px-24 py-5 flex items-center justify-between">
+            <div className="max-w-[100rem] h-full my-0 mx-auto px-24 py-5 flex items-center justify-between">
                 <SearchInput/>
                 <Logo/>
                 <HeaderToolBar/>

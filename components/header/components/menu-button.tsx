@@ -59,7 +59,7 @@ export const MenuButton = () => {
                         <TooltipTrigger asChild>
                             <DropdownMenuTrigger asChild>
                                 <Button
-                                    className="group border-2 border-zinc-300 shadow-xl"
+                                    className="group border-2 border-zinc-300 shadow-xl bg-white"
                                     variant="outline"
                                     size="icon"
                                     onClick={() => setOpen((prevState) => !prevState)}

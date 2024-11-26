@@ -23,7 +23,7 @@ export const CartButton = () => {
                 <Tooltip>
                     <TooltipTrigger asChild>
                         <Button
-                            className="relative group border-2 border-zinc-300 shadow-xl"
+                            className="relative group border-2 border-zinc-300 shadow-xl bg-white"
                             variant="outline"
                             size="icon"
                             onClick={() => setOpen(!open)}

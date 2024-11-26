@@ -32,7 +32,7 @@ export const SearchInput = () => {
             <div className="relative">
                 <Input
                     id="input-27"
-                    className="peer pe-9 ps-9 text-zinc-900 webkit-input-search-none"
+                    className="peer pe-9 ps-9 text-zinc-900 webkit-input-search-none bg-white"
                     placeholder="Buscar..."
                     type="search"
                     value={inputValue}
