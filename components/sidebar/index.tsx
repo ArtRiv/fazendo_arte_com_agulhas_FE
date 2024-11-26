@@ -35,22 +35,8 @@ const items = [
 ]
 
 export const SidebarComponent = () => {
-    const { setOpen, open } = useSidebar();
-    const { cartTotal,isEmpty } = useCart();
     return (
         <Sidebar side="right">
-            <Button className={`size-16 p-5 rounded-sm border-l border-t border-zinc-300 
-            absolute bottom-0 left-[-64px] 
-            ${open ? "left-0 border" : ""} transition-all duration-300 ease-out`}
-            variant={"ghost"} 
-            onClick={() => setOpen(!open)}>
-                {!isEmpty && (
-                    <p className="text-red-700 absolute">
-                        {cartTotal}
-                    </p>
-                )}
-                <ShoppingCart className="!w-10 !h-10 stroke-zinc-600" />
-            </Button>
             <SidebarHeader className="gap-3.5 border-b px-4 py-2">
                 <div className="flex w-full items-center justify-end">
                     <div className="text-base font-medium text-zinc-800">
