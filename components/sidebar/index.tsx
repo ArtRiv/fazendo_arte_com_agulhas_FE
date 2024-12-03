@@ -1,11 +1,12 @@
 "use client"
 
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar"
+import { Calendar, ChevronsUpDown, Home, Inbox, LogIn, LogOut, Search, Settings, User, } from "lucide-react"
+import { NavUser } from "../nav-user"
+import { SignInButton, SignedIn, SignedOut, useUser } from "@clerk/nextjs"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Button } from "../ui/button"
-import { Label } from "../ui/label"
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "../ui/sidebar"
-import { Calendar, Home, Inbox, Search, Settings, ShoppingCart, X } from "lucide-react"
-import { Switch } from "../ui/switch"
-import { useCart } from "react-use-cart"
+import { Skeleton } from "../ui/skeleton"
 const items = [
     {
         title: "Home",
@@ -35,14 +36,40 @@ const items = [
 ]
 
 export const SidebarComponent = () => {
+    const { isSignedIn, user } = useUser();
+
+    const navUser = user ? {
+        name: user.firstName,
+        email: user.primaryEmailAddress?.emailAddress,
+        avatar: user.imageUrl,
+    } : null
+
     return (
-        <Sidebar side="right">
+        <Sidebar side="right" className="z-50">
             <SidebarHeader className="gap-3.5 border-b px-4 py-2">
-                <div className="flex w-full items-center justify-end">
-                    <div className="text-base font-medium text-zinc-800">
-                        Carrinho
-                    </div>
-                </div>
+                <SignedOut>
+                    <SignInButton>
+                        <div className="flex gap-2 items-center justify-between cursor-pointer group">
+                            <Avatar className="h-8 w-8 rounded-lg">
+                                <AvatarImage alt={'usuário'} />
+                                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                            </Avatar>
+                            <div className="grid flex-1 text-left text-sm leading-tight">
+                                <span className="truncate text-sm font-semibold">Visitante</span>
+                                <span className="truncate text-xs">Logar</span>
+                            </div>
+                            <ChevronsUpDown className="ml-auto size-4" />                        </div>
+                    </SignInButton>
+                </SignedOut>
+                <SignedIn>
+                    {navUser &&
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <NavUser user={navUser} />
+                            </SidebarMenuItem>
+                        </SidebarMenu>
+                    }
+                </SignedIn>
                 <SidebarInput placeholder="Type to search..." />
             </SidebarHeader>
             <SidebarContent className="px-4 py-2">

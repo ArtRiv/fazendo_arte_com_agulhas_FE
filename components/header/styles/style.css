@@ -1,8 +1,12 @@
 .section-header {
-  height: 160px;
+  height: 80px;
   background-color: hsl(var(--background));
   width: 100%;
   z-index: 20;
+}
+
+.header-hidden {
+  top: -80px;
 }
 
 .header-sticky {
@@ -16,6 +20,27 @@
   transition: top 0.2s ease-in-out;
 }
 
-.header-hidden {
-  top: -160px;
+@media (min-width: 640px) {
+  .section-header {
+    height: 100px;
+  }
+  .header-hidden {
+    top: -100px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-header {
+    height: 120px;
+  }
+  .header-hidden {
+    top: -120px;
+  }
+}
+@media (min-width: 1280px) {
+  .section-header {
+    height: 160px;
+  }
+  .header-hidden {
+    top: -160px;
+  }
 }

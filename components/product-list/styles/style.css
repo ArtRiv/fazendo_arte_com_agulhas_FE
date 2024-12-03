@@ -1,50 +1,52 @@
-@layer utilities {
-  .shape--blob {
-    transition: clip-path 0.7s ease !important;
-    clip-path: polygon(var(--shape--blob-1));
-  }
+.card-animation {
+  transition: box-shadow 0.3s ease, transform 0.6s ease;
+}
 
-  .grid--item:nth-child(2n) .shape--blob {
-    clip-path: polygon(var(--shape--blob-2));
-  }
+.shape--blob {
+  transition: clip-path 0.7s ease !important;
+  clip-path: polygon(var(--shape--blob-1));
+}
 
-  .grid--item:nth-child(3n) .shape--blob {
-    clip-path: polygon(var(--shape--blob-3));
-  }
+.grid--item:nth-child(2n) .shape--blob {
+  clip-path: polygon(var(--shape--blob-2));
+}
 
-  .grid--item:nth-child(4n) .shape--blob {
-    clip-path: polygon(var(--shape--blob-4));
-  }
+.grid--item:nth-child(3n) .shape--blob {
+  clip-path: polygon(var(--shape--blob-3));
+}
 
-  .grid--item:nth-child(5n) .shape--blob {
-    clip-path: polygon(var(--shape--blob-5));
-  }
+.grid--item:nth-child(4n) .shape--blob {
+  clip-path: polygon(var(--shape--blob-4));
+}
 
-  .grid--item:nth-child(6n) .shape--blob {
-    clip-path: polygon(var(--shape--blob-6));
-  }
+.grid--item:nth-child(5n) .shape--blob {
+  clip-path: polygon(var(--shape--blob-5));
+}
 
-  .grid--item:nth-child(1n):hover .shape--blob {
-    clip-path: polygon(var(--shape--blob-2));
-  }
+.grid--item:nth-child(6n) .shape--blob {
+  clip-path: polygon(var(--shape--blob-6));
+}
 
-  .grid--item:nth-child(2n):hover .shape--blob {
-    clip-path: polygon(var(--shape--blob-4));
-  }
+.grid--item:nth-child(1n):hover .shape--blob {
+  clip-path: polygon(var(--shape--blob-2));
+}
 
-  .grid--item:nth-child(3n):hover .shape--blob {
-    clip-path: polygon(var(--shape--blob-2));
-  }
+.grid--item:nth-child(2n):hover .shape--blob {
+  clip-path: polygon(var(--shape--blob-4));
+}
 
-  .grid--item:nth-child(4n):hover .shape--blob {
-    clip-path: polygon(var(--shape--blob-3));
-  }
+.grid--item:nth-child(3n):hover .shape--blob {
+  clip-path: polygon(var(--shape--blob-2));
+}
 
-  .grid--item:nth-child(5n):hover .shape--blob {
-    clip-path: polygon(var(--shape--blob-2));
-  }
+.grid--item:nth-child(4n):hover .shape--blob {
+  clip-path: polygon(var(--shape--blob-3));
+}
 
-  .grid--item:nth-child(6n):hover .shape--blob {
-    clip-path: polygon(var(--shape--blob-1));
-  }
+.grid--item:nth-child(5n):hover .shape--blob {
+  clip-path: polygon(var(--shape--blob-2));
+}
+
+.grid--item:nth-child(6n):hover .shape--blob {
+  clip-path: polygon(var(--shape--blob-1));
 }

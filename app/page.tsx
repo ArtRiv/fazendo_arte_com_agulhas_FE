@@ -17,7 +17,8 @@ const Hero = () => {
   return (
     <section className="flex flex-wrap justify-center max-w-[75rem] px-12 mx-auto">
       <div className="w-1/2 flex justify-end py-3 relative z-10 max-w-full grow shrink-0">
-        <div className="mr-[-40px] [background:_var(--gradient-background)] [transform:perspective(0)] h-auto min-w-full pt-16 pr-20 pb-20 pl-20 flex flex-col justify-start self-center rounded-3xl shadow-2xl transition-all duration-300 hover:shadow-zinc-400 select-none">
+        <div className="mr-[-40px] [background:_var(--gradient-background)] [transform:perspective(0)] h-auto min-w-full pt-16 pr-20 pb-20 pl-20 flex flex-col justify-start self-center rounded-3xl shadow-2xl transition-all duration-1000 hover:shadow-zinc-400
+         hover:-rotate-1 select-none">
           <h2>
             <strong className="text-inherit text-3xl font-bold [line-height:38.4px]">
               Novos amigurumis edição Especial de Natal!
@@ -32,7 +33,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="w-1/2 flex relative max-w-full grow shrink-0 overflow-hidden ">
-        <div className="[transform:perspective(0)] overflow-hidden h-[30rem] min-h-full relative w-full rounded-3xl shadow-2xl">
+        <div className="[transform:perspective(0)] overflow-hidden h-[30rem] min-h-full relative w-full rounded-3xl">
           <Image className="cursor-pointer w-full h-full rounded-3xl animate-circular object-cover object-center [transition:opacity_.4s_cubic-bezier(.25,.46,.45,.94)] shadow-2xl" alt="main image" src={"https://medaami.com/cdn/shop/files/TN-polos.jpg?v=1731954258&width=1500"} width={552} height={480} />
         </div>
       </div>
