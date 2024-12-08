@@ -3,14 +3,15 @@
 import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
 import { useSidebar } from "@/components/ui/sidebar";
-import { useCart } from "react-use-cart";
 import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { useCart } from "@/hooks/use-cart";
 
 export const CartButton = () => {
     const { setOpen, open } = useSidebar();
-    const { totalItems } = useCart();
+    const { getTotalItems } = useCart();
+    const totalItems = getTotalItems();
     const [isClient, setIsClient] = useState(false)
 
     useEffect(() => {

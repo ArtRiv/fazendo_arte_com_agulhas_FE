@@ -15,14 +15,11 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useEffect, useRef, useState } from "react";
-import { useCart } from "react-use-cart";
 import { ShoppingBag } from "lucide-react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Skeleton } from "@/components/ui/skeleton";
-import { SignInButton, SignedIn, SignedOut, UserButton, useAuth, useUser } from "@clerk/nextjs";
-import { LogIn, LogOut } from "lucide-react";
-import Image from "next/image";
+import { useAuth, useUser } from "@clerk/nextjs";
 import { NavUser } from "@/components/nav-user";
+import { useCart } from "@/hooks/use-cart";
 
 export const MenuButton = () => {
     const [open, setOpen] = useState<boolean>(false);
@@ -115,9 +112,10 @@ export const MenuButton = () => {
 };
 
 const CartMenuItem = () => {
-    const { isEmpty, cartTotal, addItem } = useCart();
+    const { getTotalItems } = useCart();
+    const itemsQuantity = getTotalItems();
 
-    if (isEmpty) {
+    if (itemsQuantity === 0) {
         return (
             <>
                 <DropdownMenuItem className="cursor-pointer">
@@ -138,7 +136,7 @@ const CartMenuItem = () => {
             </p>
             <div className="flex items-center gap-0.5">
                 <p className="text-red-700">
-                    {cartTotal}
+                    {itemsQuantity}
                 </p>
                 <ShoppingBag className="stroke-red-700" width={16} height={16} />
             </div>
