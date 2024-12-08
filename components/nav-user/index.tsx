@@ -82,23 +82,23 @@ export function NavUser({
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer hover:bg-neutral-300">
                         <BadgeCheck />
                         Conta
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer hover:bg-neutral-300">
                         <CreditCard />
                         Compras
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer hover:bg-neutral-300">
                         <Bell />
                         Notificações
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer hover:bg-neutral-300">
                     <LogOut />
-                    Log out
+                    Sair
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
