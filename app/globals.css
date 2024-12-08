@@ -269,7 +269,7 @@ body {
     @apply min-h-screen overflow-x-hidden;
   }
   body {
-    @apply bg-background text-zinc-800;
+    @apply bg-background text-zinc-800 !min-w-full;
   }
   .text-balance {
     text-wrap: balance;
