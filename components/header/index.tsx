@@ -5,9 +5,6 @@ import { Logo } from "./components/logo";
 import { SearchInput } from "./components/search";
 import { HeaderToolBar } from "./components/menu-cart-button";
 import './styles/style.css'
-import { CartProvider } from "react-use-cart";
-import { SidebarProvider } from "../ui/sidebar";
-import { SidebarComponent } from "../sidebar";
 import { NavMenu } from "./components/nav-bar";
 
 export const Header = () => {
@@ -56,9 +53,6 @@ export const Header = () => {
         }
 
         const currentScrollTop = currentScrollTopRef.current;
-        console.log("Scrolltop: " + scrollTop);
-        console.log("CurrentScrollTop: " + currentScrollTop);
-        console.log(headerBounds.bottom);
 
         if (scrollTop > currentScrollTop && scrollTop > headerBounds.bottom) {
             header.classList.add('scrolled-past-header', 'header-sticky');
@@ -94,22 +88,19 @@ export const Header = () => {
     };
 
     return (
-        <SidebarProvider defaultOpen={false}>
-            <CartProvider>
-                <header className="section-header" ref={headerRef}>
-                    <div className="max-w-[100rem] h-full my-0 mx-auto 
+            <header className="section-header" ref={headerRef}>
+                <div className="max-w-[100rem] h-full my-0 mx-auto 
                     p-3 sm:px-12 sm:py-3 md:px-24 md:py-5 
                     flex items-center justify-between">
-                        <SearchInput/>
-                        <div className="w-1/3 flex flex-col gap-2 justify-center items-center">
-                            <Logo/>
-                            <NavMenu/>
-                        </div>
-                        <HeaderToolBar/>
+                    <SearchInput />
+                    <div className="w-1/3 flex flex-col gap-2 justify-center items-center">
+                        <Logo />
+                        <NavMenu />
                     </div>
-                </header>
-                <SidebarComponent />
-            </CartProvider>
-        </SidebarProvider>
+                    <HeaderToolBar />
+                </div>
+            </header>
+
+
     );
 } 
