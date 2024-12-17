@@ -15,41 +15,48 @@ import {
 } from "@/components/ui/navigation-menu"
 import Image from "next/image"
 
-const categories: { title: string, description: string, image: string }[] = [
+const categories: { title: string, description: string, image: string, href: string }[] = [
     {
         title: 'Todos',
         description: 'Explore toda a nossa coleção de peças de crochê!',
         image: 'https://i.ibb.co/r04HC67/fern.jpg',
+        href: "/products",
     },
     {
         title: 'Animes',
         description: 'Encontre seu personagem favorito de animes como Demon Slayer, Sousou no Frieren, Chainsaw Man e muitos outros!',
         image: 'https://i.ibb.co/NjdLy09/frieren.jpg',
+        href: "/products/animes",
     },
     {
         title: 'Jogos',
         description: 'Adicione diversão à sua coleção com personagens e itens em crochê inspirados em jogos populares como Genshin, LoL e Valorant!',
         image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg',
+        href: "/products/games",
     },
     {
         title: 'Geek',
         description: 'Celebre o seu lado geek com criações em crochê dos seus universos favoritos, incluindo super-heróis, ficção científica e mais!',
         image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg',
+        href: "/products/geek",
     },
     {
         title: 'Princesas',
         description: 'Dê vida aos contos de fadas com princesas e personagens mágicos feitos em crochê.',
-        image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg'
+        image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg',
+        href: "/products/princess",
     },
     {
         title: 'Religioso',
         description: 'Descubra peças inspiradoras em crochê, incluindo anjos, cruzes e outros designs de fé.',
-        image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg'
+        image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg',
+        href: "/products/religious",
     },
     {
         title: 'Pelúcias',
         description: 'Abrace a fofura com pelúcias em crochê, incluindo animais, personagens e designs encantadores.',
-        image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg'
+        image: 'https://i.ibb.co/c3t2Rm3/nahida-1.jpg',
+        href: "/products/plushies",
     }
 ];
 
@@ -71,6 +78,7 @@ export function NavMenu() {
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                             {categories.map((category) => (
                                 <ListItem
+                                    href={category.href}
                                     key={category.title}
                                     title={category.title}
                                     src={category.image}
@@ -134,7 +142,7 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "block select-none relative space-y-1 rounded-md p-3 leading-none transition-all duration-150 hover:bg-zinc-200 hover:rotate-1 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground srccursor-pointer",
+                        "block select-none relative space-y-1 rounded-md p-3 leading-none transition-all duration-150 hover:rotate-1 first-line:cursor-pointer",
                         src ? "pl-16" : "",
                         className
                     )}

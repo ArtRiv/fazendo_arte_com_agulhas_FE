@@ -7,7 +7,7 @@ type StarRatingProps = {
 
 export const StarRating = ({ stars, purchase_count }: StarRatingProps) => {
     return (
-        <div className="flex items-center gap-1 mt-3">
+        <div className="flex items-center gap-1">
             <div className="flex items-center gap-1">
                 {Array(stars).fill(0).map((_, i) => (
                     <StarIcon key={i} fill="#fdd261" stroke="#fdd261" width={14} height={14}/>

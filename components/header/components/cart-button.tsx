@@ -6,7 +6,7 @@ import { useSidebar } from "@/components/ui/sidebar";
 import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useCart } from "@/hooks/use-cart";
+import { useCart } from "@/utils/hooks/use-cart";
 
 export const CartButton = () => {
     const { setOpen, open } = useSidebar();

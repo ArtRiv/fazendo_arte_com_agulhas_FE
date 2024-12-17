@@ -1,6 +1,7 @@
 import { PageLayout } from "@/components/main_layout";
 import { ProductList } from "@/components/product-list";
 import { Button } from "@/components/ui/button";
+import { Product } from "@/types/product/product";
 import Image from "next/image";
 
 export default async function Home() {
@@ -41,13 +42,112 @@ const Hero = () => {
   )
 }
 
+const products_teste: Product[] = [
+  {
+      title: "Frieren - Sousou no Frieren",
+      price: 189.99,
+      media: ["https://i.ibb.co/NjdLy09/frieren.jpg"],
+      id: "price_1Q9uB8C072cq1x08z"
+  },
+  {
+      title: "Fern - Sousou no Frieren",
+      price: 99.99,
+      media: ["https://i.ibb.co/r04HC67/fern.jpg"],
+      id: "price_1Q9uB87rHWzx08z"
+  },
+  {
+      title: "Nahida - Genshin Impact",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rx08z"
+  },
+  {
+      title: "Alhaitham - Genshin Impact",
+      price: 99.99,
+      media: ["https://i.ibb.co/2yyqYFX/alhaitham-img.jpg"],
+      id: "price_1QC072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/LPQTY0Y/yoimiya-img.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7Wzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/1ZTfHLL/venti-img.jpg"],
+      id: "price_1Q9uB8C072c7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/q17wCKZ/kaedehara-kazuha-img.jpg"],
+      id: "price_1Qq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/3crqkD9/ayaka-img.jpg"],
+      id: "price_1Q9uB8C0708z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "pricB8C072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rHWzx08z"
+  },
+  {
+      title: "Pugs - Edição de natal",
+      price: 99.99,
+      media: ["https://i.ibb.co/c3t2Rm3/nahida-1.jpg"],
+      id: "price_1Q9uB8C072cq1xZ7rHWzx08z"
+  },
+]
+
 const BestSellingProductsSection = () => {
   return (
-    <section className="flex flex-wrap justify-center max-w-[75rem] px-12 mx-auto mt-16">
-      <h2 className="w-full text-left mb-14 text-inherit text-3xl font-bold [line-height:38.4px]">
+    <section className="flex flex-wrap justify-center max-w-[80rem] mx-auto mt-16">
+      <h2 className="ml-8 w-full text-left mb-14 text-inherit text-3xl font-bold [line-height:38.4px]">
         Nossos produtos mais vendidos!
       </h2>
-      <ProductList products/>
+      <ProductList products={products_teste}/>
     </section>
   )
 }

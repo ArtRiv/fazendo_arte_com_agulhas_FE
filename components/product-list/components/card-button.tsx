@@ -19,7 +19,9 @@ export const CardButton = ({ product, addOneToCart, quantity_in_cart }: CardButt
     const [isButtonInCooldown, setIsButtonInCooldown] = useState<boolean>(false);
     const { setOpen } = useSidebar();
 
-    const handleClick = async () => {
+    const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
+        e.nativeEvent.preventDefault();
         try {
             setIsButtonInCooldown(true);
             setCopied(true);
@@ -45,8 +47,8 @@ export const CardButton = ({ product, addOneToCart, quantity_in_cart }: CardButt
                 disabled={(quantity_in_cart >= 10 || isButtonInCooldown)}
                 className="w-1/5 rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10 border-zinc-400 transition-all duration-300 hover:scale-105 hover:-translate-x-[-4%] hover:z-20 hover:border-zinc-500 z-10"
                 variant="outline"
-                onClick={() => {
-                    handleClick()
+                onClick={(e) => {
+                    handleClick(e)
                     addOneToCart(product)
                     setOpen(true)
                 }}

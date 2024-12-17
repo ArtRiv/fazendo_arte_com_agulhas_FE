@@ -19,7 +19,7 @@ import { ShoppingBag } from "lucide-react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { NavUser } from "@/components/nav-user";
-import { useCart } from "@/hooks/use-cart";
+import { useCart } from "@/utils/hooks/use-cart";
 
 export const MenuButton = () => {
     const [open, setOpen] = useState<boolean>(false);

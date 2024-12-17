@@ -1,8 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SidebarMenu } from "@/components/ui/sidebar"
-import { useCart } from "@/hooks/use-cart";
+import { useCart } from "@/utils/hooks/use-cart";
 import { CartItem } from "./cart-item";
-import { CartItemType } from "@/types/cart/cart-item";
 
 export const CartList = () => {
     const { items, addOneToCart, removeOneFromCart, deleteFromCart, getProductQuantity } = useCart();
