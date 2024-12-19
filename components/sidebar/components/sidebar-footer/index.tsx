@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Shipping } from "./components/shipping";
 import { ArrowRight } from "lucide-react";
 import { Dialog } from "@/components/ui/dialog";
-import { CheckoutButton } from "./components/checkout-button";
+import { CheckoutButton } from "@/components/checkout/components/checkout-button";
+
 
 
 export const SidebarFooterComponent = () => {
@@ -26,7 +27,21 @@ export const SidebarFooterComponent = () => {
                     <Shipping hasItems={hasItems} />
                 </div>
 
-                <CheckoutButton hasItems={hasItems}/>
+                <CheckoutButton hasItems={hasItems}>
+                    <Button
+                        variant="outline"
+                        className="group/buy-button mt-3 p-5 w-full border-zinc-400 text-zinc-800"
+                        disabled={!hasItems}
+                    >
+                        Finalizar compra
+                        <ArrowRight
+                            className="-me-1 ms-2 opacity-60 transition-transform group-hover/buy-button:translate-x-0.5"
+                            size={16}
+                            strokeWidth={2}
+                            aria-hidden="true"
+                        />
+                    </Button>
+                </CheckoutButton>
             </div>
         </SidebarFooter>
     )

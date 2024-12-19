@@ -1,15 +1,12 @@
 import { StarRating } from "@/components/product-list/components/star-rating";
-import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/utils/format-price";
 import { Search } from "lucide-react";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { DialogImage } from "./dialog-image";
-import { AddToCartButton } from "./add-to-cart-button";
-
+import { ProductButtons } from "./product-buttons";
 interface ProductT {
     id: string,
     title: string,
@@ -32,6 +29,7 @@ const product_teste: ProductT =
 }
 
 export const ProductMainSection = () => {
+
     return (
         <section className="flex gap-6 flex-wrap justify-center max-w-[75rem] px-12 mx-auto">
             <div className="w-1/2 max-w-[550px] flex justify-center">
@@ -100,22 +98,7 @@ export const ProductMainSection = () => {
                     </RadioGroup>
                 </div>
                 <div className="w-full flex gap-2 p-2 mt-auto mb-4">
-                    <AddToCartButton product={
-                        {
-                            id: product_teste.id,
-                            image: product_teste.media[0],
-                            price: product_teste.price,
-                            title: product_teste.title,
-                        }
-                    } product_id={product_teste.id} />
-                    <Button
-                        variant="outline"
-                        className="w-1/2 border-fuchsia-200 py-3 h-auto gradient-button shadow-xl"
-                    >
-                        <span className="text-sm text-zinc-900 mix-blend-color-burn">
-                            Finalizar compra
-                        </span>
-                    </Button>
+                    <ProductButtons product={product_teste}/>
                 </div>
             </div>
         </section>
