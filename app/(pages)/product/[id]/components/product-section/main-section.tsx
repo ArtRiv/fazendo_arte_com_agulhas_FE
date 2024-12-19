@@ -34,9 +34,19 @@ export const ProductMainSection = () => {
         <section className="flex gap-6 flex-wrap justify-center max-w-[75rem] px-12 mx-auto">
             <div className="w-1/2 max-w-[550px] flex justify-center">
                 <DialogImage src={product_teste.media[0]} alt={product_teste.title}>
-                    <div className="relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 hover:rotate-1 cursor-pointer">
-                        <Image className="aspect-square" draggable={false} alt={`Imagem do produto ${product_teste.title}`} src={product_teste.media[0]} width={500} height={500} />
-                        <Search size={35} className="p-2 bg-background rounded-full shadow-2xl absolute top-5 left-5 z-10 transition-all duration-300 ease-in-out hover:scale-105" />
+                    <div className="relative overflow-hidden rounded-xl shadow-xl cursor-pointer group">
+                        <Image
+                            className="aspect-square transform transition-transform duration-1000 group-hover:scale-105"
+                            draggable={false}
+                            alt={`Imagem do produto ${product_teste.title}`}
+                            src={product_teste.media[0]}
+                            width={500}
+                            height={500}
+                        />
+                        <Search
+                            size={35}
+                            className="p-2 bg-background rounded-full shadow-2xl absolute top-5 left-5 z-10 transition-transform duration-300 ease-in-out group-hover:scale-105"
+                        />
                     </div>
                 </DialogImage>
             </div>
@@ -98,7 +108,7 @@ export const ProductMainSection = () => {
                     </RadioGroup>
                 </div>
                 <div className="w-full flex gap-2 p-2 mt-auto mb-4">
-                    <ProductButtons product={product_teste}/>
+                    <ProductButtons product={product_teste} />
                 </div>
             </div>
         </section>
