@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-
 import { cn } from "@/lib/utils"
 import {
     NavigationMenu,
@@ -59,7 +58,6 @@ const categories: { title: string, description: string, image: string, href: str
         href: "/products/plushies",
     }
 ];
-
 
 export function NavMenu() {
     return (
