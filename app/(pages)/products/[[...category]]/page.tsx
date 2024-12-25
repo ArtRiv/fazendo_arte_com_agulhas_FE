@@ -1,4 +1,4 @@
-import PaginationDemo from "@/components/pagination";
+import PaginationComponent from "@/components/pagination";
 import { ProductList } from "@/components/product-list";
 import { Product } from "@/types/product/product";
 import { SortBy } from "@/types/sort_by/sort_by";
@@ -248,7 +248,7 @@ export default async function CategoryPage({ searchParams }: CategoryPageProps) 
     return (
         <>
             <ProductList products={products_teste} has_filter={true} />
-            <PaginationDemo currentPage={page} totalPages={3} />
+            <PaginationComponent currentPage={page} totalPages={3} />
         </>
     )
 }
