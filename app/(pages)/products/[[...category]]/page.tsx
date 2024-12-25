@@ -236,14 +236,14 @@ const products_teste: Product[] = [
 
 interface CategoryPageProps {
     searchParams: {
-        page?: number,
-        sort_by?: SortBy,
+        pagina?: number,
+        filtro?: SortBy,
     }
 }
 
 export default async function CategoryPage({ searchParams }: CategoryPageProps) {
-    let page = Number(searchParams.page) || 1;
-    let sort_by = searchParams.sort_by || SortBy.NEWS;
+    let page = Number(searchParams.pagina) || 1;
+    let sort_by = searchParams.filtro || SortBy.NEWS;
 
     return (
         <>

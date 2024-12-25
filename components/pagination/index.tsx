@@ -18,7 +18,7 @@ export default function PaginationComponent({ currentPage, totalPages }: Paginat
     function handlePageChange(page: number) {
         const sp = new URLSearchParams(searchParams);
     
-        page === 1 ? sp.delete('page') : sp.set('page', page.toString());
+        page === 1 ? sp.delete('pagina') : sp.set('pagina', page.toString());
     
         router.push(`${pathname}?${sp.toString()}`);
     }    

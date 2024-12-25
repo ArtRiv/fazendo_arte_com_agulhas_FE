@@ -1,1 +1,6 @@
-export enum SortBy { NEWS, BEST_SELLING, LOWEST_PRICE, BIGGEST_PRICE };
+export enum SortBy {
+    NEWS = "novidades",
+    BEST_SELLING = "mais-vendidos",
+    LOWEST_PRICE = "preco-ascendente",
+    BIGGEST_PRICE = "preco-decrescente",
+};
