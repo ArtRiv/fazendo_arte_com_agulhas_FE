@@ -1,0 +1,1 @@
+export enum SortBy { NEWS, BEST_SELLING, LOWEST_PRICE, BIGGEST_PRICE };
