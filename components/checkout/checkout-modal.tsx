@@ -22,7 +22,7 @@ export const CheckoutModal = ({
     handleContinue,
 }: CheckoutModalProps) => {
     return (
-        <DialogContent className="h-5/6 my-4 gap-0 px-4 py-5 [&>button:last-child]:text-white space-y-6">
+        <DialogContent className="h-5/6 my-4 gap-0 px-6 py-5 [&>button:last-child]:text-white space-y-6">
             <>
                 {(() => {
                     switch (step) {
