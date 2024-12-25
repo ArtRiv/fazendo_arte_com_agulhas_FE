@@ -1,11 +1,13 @@
-import { Stripe } from "@stripe/stripe-js";
+import Stripe from 'stripe';
 import { NextRequest, NextResponse } from "next/server";
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-// POST handler
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+  apiVersion: '2024-11-20.acacia'
+});
+
 export async function POST(req: NextRequest) {
   try {
-    const { priceId, customer_email } = await req.json();
+    const { priceId, customerEmail } = await req.json();
 
     if (!priceId) {
       return NextResponse.json({ error: "Price ID is required" }, { status: 400 });
@@ -19,7 +21,7 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
-      customer_email,
+      customer_email: customerEmail,
       mode: "payment",
       payment_method_types: ["card"],
       redirect_on_completion: "never",
@@ -31,7 +33,6 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// GET handler
 export async function GET(req: NextRequest) {
   try {
     const session_id = req.nextUrl.searchParams.get("session_id");
