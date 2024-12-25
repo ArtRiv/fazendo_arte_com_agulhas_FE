@@ -30,9 +30,8 @@ export const PaymentForm = () => {
 
     return (
         <ScrollArea className='flex items-center h-full'>
-            <div id="checkout h-full">
+            <div id="checkout" className='h-full'>
                 <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
-                    <EmbeddedCheckout />
                 </EmbeddedCheckoutProvider>
             </div>
         </ScrollArea>
