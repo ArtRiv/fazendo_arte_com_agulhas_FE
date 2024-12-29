@@ -1,6 +1,5 @@
 "use client";
 
-import { Label } from "@/components/ui/label";
 import { Check, ChevronDown } from "lucide-react";
 import { Fragment, useState } from "react";
 
@@ -80,12 +79,11 @@ const estados: Region[] = [
     },
 ];
 
-export const DistrictInput = () => {
+export const DistrictInput = ({ value, onChange }: { value: string; onChange: (value: string) => void }) => {
     const [open, setOpen] = useState<boolean>(false);
-    const [value, setValue] = useState<string>("");
 
     const handleSelect = (currentValue: string) => {
-        setValue(currentValue);
+        onChange(currentValue);
         setOpen(false);
     };
 
@@ -94,7 +92,7 @@ export const DistrictInput = () => {
             <Popover modal={false} open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
                     <Button
-                        id="select-estado"
+                        id="select-state"
                         variant="outline"
                         role="combobox"
                         aria-expanded={open}
@@ -127,7 +125,7 @@ export const DistrictInput = () => {
                 <PopoverContent
                     className="z-50 pointer-events-auto w-full min-w-[var(--radix-popper-anchor-width)] border-input p-0"
                     align="start"
-                    
+
                 >
                     <Command>
                         <CommandInput placeholder="Buscar estado..." />
@@ -141,7 +139,7 @@ export const DistrictInput = () => {
                                                 className="flex items-center gap-3"
                                                 key={district.name}
                                                 value={district.name}
-                                                onSelect={handleSelect}
+                                                onSelect={() => handleSelect(district.name)}
                                             >
                                                 <span className="text-sm opacity-80">{district.abbr}</span>{" "}
                                                 {district.name}

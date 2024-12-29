@@ -1,5 +1,6 @@
 import Stripe from 'stripe';
 import { NextRequest, NextResponse } from "next/server";
+import { getStripeCheckoutShippingOptionsFormat } from '@/utils/get-stripe-shipping-options-format';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2024-11-20.acacia'
@@ -7,21 +8,28 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 export async function POST(req: NextRequest) {
   try {
-    const { priceId, customerEmail } = await req.json();
+    const { price_id, customer_email, shipping_options } = await req.json();
 
-    if (!priceId) {
+    if (!price_id) {
       return NextResponse.json({ error: "Price ID is required" }, { status: 400 });
     }
+
+    if (!shipping_options || shipping_options.length === 0) {
+      return NextResponse.json({ error: "Shipping options are required" }, { status: 400 });
+    }
+
+    const formattedShippingOptions = getStripeCheckoutShippingOptionsFormat(shipping_options);
 
     const session = await stripe.checkout.sessions.create({
       ui_mode: "embedded",
       line_items: [
         {
-          price: priceId,
+          price: price_id,
           quantity: 1,
         },
       ],
-      customer_email: customerEmail,
+      shipping_options: formattedShippingOptions,
+      customer_email: customer_email,
       mode: "payment",
       payment_method_types: ["card"],
       redirect_on_completion: "never",

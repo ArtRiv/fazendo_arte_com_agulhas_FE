@@ -5,16 +5,17 @@ import {
 } from '@stripe/react-stripe-js';
 import { useCallback } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { ShippingOption } from '@/types/shipping/shipping_options';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
-export const PaymentForm = () => {
+export const PaymentForm = ({ shipping_options }: { shipping_options: ShippingOption[]}) => {
     const fetchClientSecret = useCallback(async () => {
-        const priceId = "price_1PxH6JC072cq1xZ7YJe74UV3"; 
-        const customerEmail = "arthurfelaco707@gmail.com";
+        const price_id = "price_1PxH6JC072cq1xZ7YJe74UV3"; 
+        const customer_email = "arthurfelaco707@gmail.com";
         const res = await fetch("http://localhost:3000/api/stripe-checkout", {
             method: "POST",
-            body: JSON.stringify({ priceId, customerEmail }),
+            body: JSON.stringify({ price_id, customer_email, shipping_options }),
         });
 
         if (!res.ok) {

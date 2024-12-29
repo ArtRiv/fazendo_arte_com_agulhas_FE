@@ -1,40 +1,36 @@
-import { Button } from "@/components/ui/button";
 import {
-    DialogClose,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import { ArrowRight, MapPinHouse } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { UserFields } from "../components/user-fields";
-import { AddressFields } from "../components/address-fields";
-;
+import { MapPinHouse } from "lucide-react";
+import { CustomForm } from "./components/form";
+import { Dispatch, SetStateAction } from "react";
+import { ShippingOption } from "@/types/shipping/shipping_options";
 
-export const AddressForm = () => {
+interface AddressFormProps {
+    handleContinue: () => void,
+    setShippingOptions: Dispatch<SetStateAction<ShippingOption[] | undefined>>
+}
+
+export const AddressForm = ({ handleContinue, setShippingOptions }: AddressFormProps) => {
     return (
         <div>
-            <div className="mb-2 flex gap-4">
+            <DialogHeader className="mb-2 flex flex-row gap-4">
                 <div
                     className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
                     aria-hidden="true"
                 >
                     <MapPinHouse className="opacity-80" size={16} strokeWidth={2} />
                 </div>
-                <DialogHeader>
+                <div>
                     <DialogTitle className="text-left text-md">Detalhes do Endereço</DialogTitle>
                     <DialogDescription className="text-left">
                         Insira as informações necessárias para o envio do seu pedido.
                     </DialogDescription>
-                </DialogHeader>
-            </div>
-            <form className="space-y-5">
-                <div className="space-y-4">
-                    <UserFields />
-                    <AddressFields />
                 </div>
-            </form>
+            </DialogHeader>
+            <CustomForm handleContinue={handleContinue} setShippingOptions={setShippingOptions} />
         </div>
     )
 }

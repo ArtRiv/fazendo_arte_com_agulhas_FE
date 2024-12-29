@@ -48,10 +48,7 @@ export const CheckoutButton = ({ hasItems, children }: CheckoutButtonProps) => {
             modal={false}
         >
             {isOpen && (
-                <div
-                    className="fixed z-50 w-screen h-screen inset-0 bg-black/60 backdrop-blur-sm"
-                    onClick={() => setIsOpen(false)}
-                />
+                <div className="fixed z-50 w-screen h-screen inset-0 bg-black/60 backdrop-blur-sm" />
             )}
             <DialogTrigger asChild>
                 {children}
