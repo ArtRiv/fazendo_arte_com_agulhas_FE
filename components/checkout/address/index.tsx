@@ -15,7 +15,7 @@ interface AddressFormProps {
 
 export const AddressForm = ({ handleContinue, setShippingOptions }: AddressFormProps) => {
     return (
-        <div>
+        <div className="px-4">
             <DialogHeader className="mb-2 flex flex-row gap-4">
                 <div
                     className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"

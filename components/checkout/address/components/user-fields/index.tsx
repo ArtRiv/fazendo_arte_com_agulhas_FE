@@ -1,45 +1,64 @@
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { Control } from "react-hook-form";
 import { withMask } from "use-mask-input";
 import { AddressSchema } from "../form";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
-export const UserFields = ({ register }: { register: UseFormRegister<AddressSchema> }) => {
+export const UserFields = ({ control }: { control: Control<AddressSchema> }) => {
     return (
         <>
-            <div className="space-y-2">
-                <Label htmlFor="name-input">
-                    Nome completo <span className="text-destructive">*</span>
-                </Label>
-                <Input id="name-input" placeholder="Insira seu nome completo" type="text" required {...register('user.name')} />
-            </div>
-            <div className="space-y-2">
-                <div className="flex items-center justify-between gap-1">
-                    <Label htmlFor="email-input" className="leading-6">
-                        E-mail
-                    </Label>
-                    <span className="text-sm text-muted-foreground">Opcional</span>
-                </div>
-                <Input id="email-input" placeholder="Insira seu E-mail" type="email" className="!mt-2" {...register('user.email')} />
-            </div>
-            <div className="space-y-2">
-                <div className="flex items-center justify-between gap-1">
-                    <Label htmlFor="phone-input" className="leading-6">
-                        Número de telefone
-                    </Label>
-                    <span className="text-sm text-muted-foreground">Opcional</span>
-                </div>
-                <Input
-                    id="phone-input"
-                    type="text"
-                    placeholder="Insira seu número de telefone"
-                    {...register('user.phone_number')}
-                    ref={withMask("(99) 99999-9999", {
-                        placeholder: "",
-                        showMaskOnHover: false,
-                    })}
-                />
-            </div>
+            <FormField
+                control={control}
+                name="user.name"
+                render={({ field }) => (
+                    <FormItem className="space-y-2">
+                        <FormLabel>Nome Completo <span className="text-destructive">*</span> </FormLabel>
+                        <FormControl>
+                            <Input placeholder="Insira seu nome completo" type="text" required {...field} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                )}
+            />
+            <FormField
+                control={control}
+                name="user.email"
+                render={({ field }) => (
+                    <FormItem className="space-y-2">
+                        <div className="w-full flex items-center justify-between">
+                            <FormLabel>Email</FormLabel>
+                            <span className="text-sm text-muted-foreground">Opcional</span>
+                        </div>
+                        <FormControl>
+                            <Input placeholder="Insira seu e-mail" type="email" {...field} />
+                        </FormControl>
+                    </FormItem>
+                )}
+            />
+            <FormField
+                control={control}
+                name="user.phone_number"
+                render={({ field }) => (
+                    <FormItem className="space-y-2">
+                        <div className="w-full flex items-center justify-between">
+                            <FormLabel>Telefone</FormLabel>
+                            <span className="text-sm text-muted-foreground">Opcional</span>
+                        </div>
+                        <FormControl>
+                            <Input
+                                id="phone-input"
+                                type="text"
+                                placeholder="Insira seu número de telefone"
+                                {...field}
+                                ref={withMask("(99) 99999-9999", {
+                                    placeholder: "",
+                                    showMaskOnHover: false,
+                                })}
+                            />
+                        </FormControl>
+                    </FormItem>
+                )}
+            />
         </>
     );
 };

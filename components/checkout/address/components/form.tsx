@@ -15,19 +15,19 @@ import { ShippingOption } from "@/types/shipping/shipping_options";
 
 const AddressSchema = z.object({
     user: z.object({
-        name: z.string(),
-        email: z.string().optional(),
-        phone_number: z.string().optional(),
+        name: z.string().min(1, "O nome é obrigatório."),
+        email: z.union([z.string().email().optional(), z.literal("")]),
+        phone_number: z.union([z.string().regex(/^\(\d{2}\)\s?\d{4,5}-\d{4}$/).optional(), z.literal("")]),
     }),
     address: z.object({
-        street: z.string(),
-        street_number: z.string(),
-        complement: z.string(),
-        CEP: z.string(),
-        district: z.string(),
-        city: z.string(),
-        state: z.string()
-    })
+        street: z.string().min(1, { message: "O nome da rua é obrigatório." }),
+        street_number: z.union([z.string().optional(), z.literal("")]),
+        complement: z.string().optional(),
+        CEP: z.string().regex(/^\d{5}-\d{3}$/, { message: "O formato do CEP é inválido." }),
+        district: z.string().min(1, { message: "O bairro é obrigatório." }),
+        city: z.string().min(1, { message: "A cidade é obrigatória." }),
+        state: z.string().length(2, { message: "O estado deve ter 2 letras (ex: SC)." }),
+    }),
 });
 
 export type AddressSchema = z.infer<typeof AddressSchema>;
@@ -84,8 +84,8 @@ export const CustomForm = ({ handleContinue, setShippingOptions }: CustomFormPro
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-5">
-                <UserFields register={form.register} />
-                <AddressFields register={form.register} control={form.control} />
+                <UserFields control={form.control} />
+                <AddressFields control={form.control} />
                 <DialogFooter>
                     <div className="w-full flex flex-col justify-between gap-4 sm:flex-row sm:items-center items-end mt-auto">
                         <div className="flex justify-center space-x-1.5 max-sm:order-1">
