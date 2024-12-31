@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, LoaderCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Form } from "@/components/ui/form";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ShippingOption } from "@/types/shipping/shipping_options";
 
 const AddressSchema = z.object({
@@ -58,7 +58,21 @@ export const CustomForm = ({ handleContinue, setShippingOptions }: CustomFormPro
                 phone_number: "",
             }
         }
-    })
+    });
+
+    useEffect(() => {
+        const savedData = sessionStorage.getItem("formData");
+        if (savedData) {
+            form.reset(JSON.parse(savedData)); 
+        }
+    }, [form]);
+
+    useEffect(() => {
+        const subscription = form.watch((value) => {
+            sessionStorage.setItem("formData", JSON.stringify(value));
+        });
+        return () => subscription.unsubscribe();
+    }, [form]);
 
     async function handleSubmit(data: AddressSchema) {
         setIsLoading(true);
@@ -74,6 +88,7 @@ export const CustomForm = ({ handleContinue, setShippingOptions }: CustomFormPro
             setShippingOptions(shipping_options);
             handleContinue();
 
+            sessionStorage.removeItem("formData");
         } catch (error) {
             console.error(error || "Failed to fetch client secret");
         } finally {
