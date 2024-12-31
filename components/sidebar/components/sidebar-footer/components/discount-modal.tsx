@@ -50,7 +50,7 @@ export function DiscountModal({ hasItems }: { hasItems: boolean }) {
                     <TicketPercent width={8} height={8} />
                 </Button>
             </DialogTrigger>
-            <DialogContent className="bg-zinc-100/80 backdrop-blur-sm">
+            <DialogContent className="bg-zinc-100/90 backdrop-blur-sm">
                 <div className="flex flex-col items-center gap-2">
                     <div
                         className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
